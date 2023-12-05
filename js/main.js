@@ -97,6 +97,22 @@ elList.addEventListener("click", (evt) => {
     }
 })
 
+let btnWrap = document.querySelector(".btn-groups");
+
+btnWrap.addEventListener("click", evt => {
+    if (evt.target.matches(".js-all-btn")) {
+        render(todos,elList)
+    }
+    if (evt.target.matches(".js-completed-btn")) {
+        const checkeds = todos.filter(item => item.isCompleted)
+        render(checkeds, elList)
+    }
+    if (evt.target.matches(".js-uncompleted-btn")) {
+        const uncheckeds = todos.filter(item => !item.isCompleted)
+        render(uncheckeds, elList)
+    }
+})
+
 elAllBtn.addEventListener("click", function(evt) {
     evt.preventDefault();
 
